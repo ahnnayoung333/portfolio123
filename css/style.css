@@ -1,0 +1,1624 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Satisfy&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: rgb(0, 0, 0);
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .inner {
+  width: 1180px;
+  margin: 0 auto;
+}
+header .inner h1 .logo {
+  color: #fff;
+}
+header .inner .nav_web .gnb {
+  display: inline-flex;
+  color: #fff;
+}
+header .inner .nav_web .gnb li {
+  width: 120px;
+  padding: 15px;
+  margin: 15px 30px 0;
+  cursor: pointer;
+}
+header .inner .nav_web .gnb li a {
+  color: #fff;
+}
+header .inner .nav_web .gnb li:hover {
+  background-color: rgb(6, 185, 170);
+}
+
+#visual {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+#visual .panel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+#visual .panel li {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 1s;
+}
+#visual .panel li.on {
+  opacity: 1;
+  z-index: 2;
+}
+#visual .panel li:nth-of-type(1) {
+  background-image: url(../img/mmainHa.jpg);
+}
+#visual .panel li:nth-of-type(2) {
+  background-image: url(../img/mmainJu.jpg);
+}
+#visual .panel li:nth-of-type(3) {
+  background-image: url(../img/mmain10.jpg);
+}
+#visual .panel li a {
+  position: absolute;
+  left: 10vw;
+  bottom: 250px;
+  height: 50px;
+  color: rgb(238, 238, 238);
+  text-shadow: rgb(9, 1, 24) 9px 8px 3px;
+  font: bold 150px/1 arial;
+}
+#visual nav {
+  position: absolute;
+  z-index: 3;
+  bottom: 9vh;
+  right: 10vw;
+  display: flex;
+  gap: 40px;
+  color: #fff;
+  cursor: pointer;
+}
+#visual nav i {
+  display: inline-block;
+}
+#visual nav i.on {
+  color: #222;
+  transform: scale(2);
+}
+#visual .btns {
+  position: absolute;
+  left: 10vw;
+  bottom: 10vh;
+  display: flex;
+  gap: 10px;
+  z-index: 3;
+}
+#visual .btns li {
+  width: 70px;
+  height: 5px;
+  background-color: #fff;
+  transition: 0.5s;
+  cursor: pointer;
+}
+#visual .btns li.on {
+  width: 150px;
+  background-color: #222;
+}
+#visual .bar {
+  width: 0%;
+  height: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 4;
+}
+
+figure {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+}
+figure h1 {
+  position: relative;
+  left: 45%;
+  top: 10%;
+  font: bold 50px/1 "arial";
+  color: #000;
+  text-shadow: 5px 5px px #000000;
+}
+figure .banner {
+  width: 40%;
+  height: 50%;
+  position: relative;
+  top: 550px;
+  left: 50%;
+  margin-top: -160px;
+  margin-left: -350px;
+}
+figure .banner ul {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+figure .banner ul li {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 99999px;
+  transition: 1s;
+}
+figure .banner ul li h2 {
+  font: normal 24px/1 "anton";
+  color: #ccc;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: 1.5s;
+}
+figure .banner ul li .inner {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-repeat: inherit;
+  background-size: inherit;
+  background-position: inherit;
+}
+figure .banner ul li .inner::before, figure .banner ul li .inner::after {
+  content: "";
+  position: absolute;
+  top: -32%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: inherit;
+  background-repeat: inherit;
+  transition: 1.5s;
+}
+figure .banner ul li .inner::before {
+  top: -31%;
+  left: 2%;
+  filter: blur(20px);
+  opacity: 0.7;
+}
+figure .banner ul li a {
+  display: block;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  bottom: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 1s, bottom 1s, width 0.5s 1s;
+}
+figure .banner ul li a::before,
+figure .banner ul li a span {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: -400px;
+  left: 0;
+  font: 11px/1 "anton";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 2px;
+  color: #fff;
+  border-radius: 20px;
+  background-image: inherit;
+}
+figure .banner ul li a span {
+  opacity: 0;
+  text-indent: -40px;
+  transition: 0.5s 1.4s;
+}
+figure .banner ul li a::before {
+  transform: translateY(120%);
+  filter: blur(10px) saturate(2);
+  opacity: 0.8;
+}
+figure .banner ul li:nth-of-type(1) {
+  transform: translateY(-100px) translateX(-1600px) scale(0.5);
+}
+figure .banner ul li:nth-of-type(1) .inner::after,
+figure .banner ul li:nth-of-type(1) .inner::before {
+  transform: scale(1);
+}
+figure .banner ul li:nth-of-type(2) {
+  transform: translateY(-100px) translateX(-1000px) scale(0.5);
+}
+figure .banner ul li:nth-of-type(2) .inner::after,
+figure .banner ul li:nth-of-type(2) .inner::before {
+  transform: scale(1);
+}
+figure .banner ul li:nth-of-type(3) {
+  transform: translateY(-100px) translateX(-600px) scale(0.5);
+}
+figure .banner ul li:nth-of-type(3) .inner::after,
+figure .banner ul li:nth-of-type(3) .inner::before {
+  transform: scale(1);
+}
+figure .banner ul li:nth-of-type(4) {
+  opacity: 3;
+  transform: translateX(0px) scale(1);
+}
+figure .banner ul li:nth-of-type(4) h2 {
+  font-size: 110px;
+  opacity: 0.9;
+  color: #fff;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3764705882);
+  top: -30vh;
+  letter-spacing: 0px;
+}
+figure .banner ul li:nth-of-type(4) a {
+  opacity: 1;
+  bottom: -50%;
+  width: 200px;
+}
+figure .banner ul li:nth-of-type(4) a span {
+  opacity: 1;
+  text-indent: 0px;
+}
+figure .banner ul li:nth-of-type(4) a.off {
+  opacity: 0;
+  z-index: -9;
+  display: none;
+}
+figure .banner ul li:nth-of-type(5) {
+  transform: translateY(-100px) translateX(600px) scale(0.5);
+}
+figure .banner ul li:nth-of-type(5) .inner::after,
+figure .banner ul li:nth-of-type(5) .inner::before {
+  transform: scale(1);
+}
+figure .banner ul li:nth-of-type(6) {
+  transform: translateY(-100px) translateX(1000px) scale(0.5);
+}
+figure .banner ul li:nth-of-type(6) .inner::after,
+figure .banner ul li:nth-of-type(6) .inner::before {
+  transform: scale(1);
+}
+figure .banner ul li:nth-of-type(7) {
+  transform: translateY(-100px) translateX(1600px) scale(0.5);
+}
+figure .banner ul li:nth-of-type(7) .inner::after,
+figure .banner ul li:nth-of-type(7) .inner::before {
+  transform: scale(1);
+}
+figure .btns1 {
+  position: absolute;
+  bottom: 25%;
+  right: 10vw;
+  display: flex;
+  gap: 50px;
+  transition: 0.5s;
+}
+figure .btns1 div {
+  cursor: pointer;
+  width: 120px;
+  height: 36px;
+  background-color: #999;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: 12px/1 "anton";
+  color: #fff;
+  letter-spacing: 4px;
+}
+figure .btns1 div:hover {
+  background-color: #555;
+}
+figure .btns1.off {
+  right: 5vw;
+  opacity: 0;
+  z-index: -3;
+}
+figure .pop {
+  width: 50vw;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: -50vw;
+  background-color: rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 22vh 5vw 10vh 6vw;
+  transition: 0.5s;
+}
+figure .pop h2 {
+  font: 12vw/1 "anton";
+  color: #fff;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: 1s 0.3s;
+}
+figure .pop p {
+  font: 22px/1.2 "arial";
+  color: #fff;
+  letter-spacing: 1px;
+  margin-bottom: 50px;
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: 0.5s 0.8s;
+}
+figure .pop .close {
+  width: 200px;
+  height: 40px;
+  border: 2px solid #fff;
+  font: bold 14px/1 "arial";
+  color: #fff;
+  cursor: pointer;
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+}
+figure .pop .close:hover {
+  background-color: #fff;
+  color: #777;
+}
+figure .pop.on {
+  left: 0;
+}
+figure .pop.on h2,
+figure .pop.on p,
+figure .pop.on .close {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+figure {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+}
+figure h1 {
+  position: relative;
+  left: 45%;
+  top: 10%;
+  font: bold 50px/1 "arial";
+  color: #000;
+  text-shadow: 5px 5px px #000000;
+}
+figure .banner {
+  width: 40%;
+  height: 50%;
+  position: relative;
+  top: 550px;
+  left: 50%;
+  margin-top: -160px;
+  margin-left: -350px;
+}
+figure .banner ul {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+figure .banner ul li {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 99999px;
+  transition: 1s;
+}
+figure .banner ul li h2 {
+  font: normal 24px/1 "anton";
+  color: #eee;
+  text-shadow: 3px 3px 3px #000;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: 1.5s;
+}
+figure .banner ul li .inner {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-repeat: inherit;
+  background-size: inherit;
+  background-position: inherit;
+}
+figure .banner ul li .inner::before, figure .banner ul li .inner::after {
+  content: "";
+  position: absolute;
+  top: -32%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: inherit;
+  background-repeat: inherit;
+  transition: 1.5s;
+}
+figure .banner ul li .inner::before {
+  top: -31%;
+  left: 2%;
+  filter: blur(20px);
+  opacity: 0.7;
+}
+figure .banner ul li a {
+  display: block;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  bottom: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 1s, bottom 1s, width 0.5s 1s;
+}
+figure .banner ul li a::before,
+figure .banner ul li a span {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: -400px;
+  left: 0;
+  font: 11px/1 "anton";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 2px;
+  color: #fff;
+  border-radius: 20px;
+  background-image: inherit;
+}
+figure .banner ul li a span {
+  opacity: 0;
+  text-indent: -40px;
+  transition: 0.5s 1.4s;
+}
+figure .banner ul li a::before {
+  transform: translateY(120%);
+  filter: blur(10px) saturate(2);
+  opacity: 0.8;
+}
+figure .banner ul li:nth-of-type(1) {
+  transform: translateY(-100px) translateX(-1600px) scale(0.5);
+}
+figure .banner ul li:nth-of-type(1) .inner::after,
+figure .banner ul li:nth-of-type(1) .inner::before {
+  transform: scale(1);
+}
+figure .banner ul li:nth-of-type(2) {
+  transform: translateY(-100px) translateX(-1000px) scale(0.5);
+}
+figure .banner ul li:nth-of-type(2) .inner::after,
+figure .banner ul li:nth-of-type(2) .inner::before {
+  transform: scale(1);
+}
+figure .banner ul li:nth-of-type(3) {
+  transform: translateY(-100px) translateX(-600px) scale(0.5);
+}
+figure .banner ul li:nth-of-type(3) .inner::after,
+figure .banner ul li:nth-of-type(3) .inner::before {
+  transform: scale(1);
+}
+figure .banner ul li:nth-of-type(4) {
+  opacity: 3;
+  transform: translateX(0px) scale(1);
+}
+figure .banner ul li:nth-of-type(4) h2 {
+  font-size: 110px;
+  opacity: 0.9;
+  color: #eee;
+  text-shadow: 3px 3px 3px #000;
+  top: -30vh;
+  letter-spacing: 0px;
+}
+figure .banner ul li:nth-of-type(4) a {
+  opacity: 1;
+  bottom: -50%;
+  width: 200px;
+}
+figure .banner ul li:nth-of-type(4) a span {
+  opacity: 1;
+  text-indent: 0px;
+}
+figure .banner ul li:nth-of-type(4) a.off {
+  opacity: 0;
+  z-index: -9;
+  display: none;
+}
+figure .banner ul li:nth-of-type(5) {
+  transform: translateY(-100px) translateX(600px) scale(0.5);
+}
+figure .banner ul li:nth-of-type(5) .inner::after,
+figure .banner ul li:nth-of-type(5) .inner::before {
+  transform: scale(1);
+}
+figure .banner ul li:nth-of-type(6) {
+  transform: translateY(-100px) translateX(1000px) scale(0.5);
+}
+figure .banner ul li:nth-of-type(6) .inner::after,
+figure .banner ul li:nth-of-type(6) .inner::before {
+  transform: scale(1);
+}
+figure .banner ul li:nth-of-type(7) {
+  transform: translateY(-100px) translateX(1600px) scale(0.5);
+}
+figure .banner ul li:nth-of-type(7) .inner::after,
+figure .banner ul li:nth-of-type(7) .inner::before {
+  transform: scale(1);
+}
+figure .btns1 {
+  position: absolute;
+  bottom: 25%;
+  right: 10vw;
+  display: flex;
+  gap: 50px;
+  transition: 0.5s;
+}
+figure .btns1 div {
+  cursor: pointer;
+  width: 120px;
+  height: 36px;
+  background-color: #999;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: 12px/1 "anton";
+  color: #fff;
+  letter-spacing: 4px;
+}
+figure .btns1 div:hover {
+  background-color: #555;
+}
+figure .btns1.off {
+  right: 5vw;
+  opacity: 0;
+  z-index: -3;
+}
+figure .pop {
+  width: 50vw;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: -50vw;
+  background-color: rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 22vh 5vw 10vh 6vw;
+  transition: 0.5s;
+}
+figure .pop h2 {
+  font: 12vw/1 "anton";
+  color: #fff;
+  text-shadow: 3px 3px 3px #000;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: 1s 0.3s;
+}
+figure .pop .txt1 p {
+  font: 22px/1.2 "arial";
+  color: #fff;
+  letter-spacing: 1px;
+  margin-bottom: 50px;
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: 0.5s 0.8s;
+  text-shadow: 5px 5px 5px #000;
+}
+figure .pop .close {
+  width: 200px;
+  height: 40px;
+  border: 2px solid #fff;
+  font: bold 14px/1 "arial";
+  color: #fff;
+  cursor: pointer;
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  box-shadow: 3px 3px 5px #333;
+}
+figure .pop .close:hover {
+  background-color: #fff;
+  color: #777;
+}
+figure .pop.on {
+  left: 0;
+}
+figure .pop.on h2,
+figure .pop.on p,
+figure .pop.on .close {
+  opacity: 1;
+  transform: translateX(0px);
+  text-shadow: 2px 2px 3px #000;
+}
+
+.member {
+  width: 1500px;
+  height: 700px;
+  margin: 100px auto;
+  position: relative;
+  display: flex;
+}
+.member h1 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -50px;
+  font-size: 50px;
+}
+.member section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.member section article {
+  flex: 1;
+  padding-left: 50;
+  margin: 20px;
+  position: relative;
+  z-index: 1;
+  filter: grayscale(1);
+  transition: all 1s;
+}
+.member section article:hover {
+  flex: 1.5;
+  opacity: 1;
+  z-index: 2;
+  filter: grayscale(0);
+}
+.member section article:hover .inner .txt h2 {
+  font-size: 40px;
+  text-shadow: 3px 3px 3px #000;
+  color: #79e5cb;
+}
+.member section article .inner .txt h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: 1s;
+  font-size: 20px;
+  cursor: pointer;
+}
+.member section article .inner .txt p {
+  opacity: 0;
+  display: none;
+}
+.member section article .inner figure {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 1s;
+}
+.member section article .inner figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.aside {
+  width: 100%;
+  height: 65vh;
+  position: absolute;
+  top: 30px;
+  left: -100%;
+  opacity: 0;
+  padding: 0% 0% 0% 0%;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  transition: 1s;
+  background-color: #222;
+}
+.aside.on {
+  opacity: 1;
+  left: 0;
+}
+.aside .txt {
+  width: 25%;
+  height: 100%;
+  position: relative;
+  top: 5%;
+}
+.aside .txt h2 {
+  position: relative;
+  top: 0;
+  left: 10%;
+  opacity: 1;
+  font: normal 6vw/1 "Alegreya Sans SC";
+  color: #ddd;
+  margin-bottom: 20px;
+}
+.aside .txt p {
+  position: relative;
+  top: 0;
+  left: 10%;
+  opacity: 1;
+  font: 1.1vw/1.2 "arial";
+  color: #888;
+}
+.aside .txt span {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  cursor: pointer;
+  color: orange;
+}
+.aside figure {
+  width: 40%;
+  height: 100%;
+}
+.aside figure img {
+  width: 80%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.community {
+  width: 100%;
+  height: 215vh;
+  position: relative;
+  top: 30%;
+  display: block;
+}
+.community h2 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  font: bold 50px/1 "arial";
+}
+.community .inner2 {
+  width: 1180px;
+  margin: 50px auto;
+  padding: 0 20px;
+  position: relative;
+}
+.community .inner2 .center_line {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background-color: #000;
+}
+.community .inner2 .center_line .scroll_icon {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f2f2f2;
+  font-size: 25px;
+  text-align: center;
+  line-height: 40px;
+  color: #79e5cb;
+  box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+}
+.community .inner2 .row {
+  display: flex;
+}
+.community .inner2 .row section {
+  background-color: #eee;
+  border-radius: 5px;
+  width: calc(50% - 40px);
+  padding: 20px;
+  position: relative;
+  top: -100px;
+  font: bold 20px/1 "arial";
+  transform: translateY(100px);
+  transition: 1s;
+}
+.community .inner2 .row section .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.community .inner2 .row section .derails {
+  justify-content: space-between;
+  align-items: center;
+  font: bold 14px/1 "arial";
+}
+.community .inner2 .row section .derails img {
+  position: relative;
+  top: -5px;
+  width: 100px;
+  height: 100px;
+  padding: 5px 5px 5px 5px;
+  margin: 5px 5px 5px 5px;
+}
+.community .inner2 .row section .derails p {
+  display: inline;
+  position: relative;
+  top: 10px;
+  left: -70%;
+  margin: 0px 5px 0px 5px;
+  white-space: nowrap;
+}
+.community .inner2 .row section .bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.community .inner2 .row section .bottom a {
+  display: block;
+  background-color: #79e5cb;
+  padding: 7px 15px;
+  border-radius: 5px;
+  color: #fff;
+}
+.community .inner2 .row section::before {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 15px;
+  background-color: #79e5cb;
+  position: absolute;
+  top: 28px;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+.community .inner2 .row section > i {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f2f2f2;
+  text-align: center;
+  line-height: 40px;
+  color: #79e5cb;
+  font-size: 17px;
+  box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+}
+.community .inner2 .row.row_left {
+  justify-content: flex-start;
+}
+.community .inner2 .row.row_left section::before {
+  right: -7px;
+}
+.community .inner2 .row.row_left section > i {
+  top: 15px;
+  right: -60px;
+}
+.community .inner2 .row.row_right {
+  justify-content: flex-end;
+}
+.community .inner2 .row.row_right section::before {
+  left: -7px;
+}
+.community .inner2 .row.row_right section > i {
+  top: 15px;
+  left: -60px;
+}
+
+#footer {
+  position: relative;
+  top: 100px;
+  width: 100%;
+  padding: 100px 0;
+  background: #444;
+}
+#footer .inner {
+  width: 1180px;
+  margin: 0 auto;
+}
+#footer .inner::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+#footer .inner h1 {
+  font: bold 24px/1 "arial";
+  color: #666;
+  float: left;
+}
+#footer .inner ul {
+  float: right;
+}
+#footer .inner ul li {
+  float: left;
+  margin-left: 20px;
+}
+#footer .inner ul li a {
+  font: bold 14px/1 "arial";
+  color: #666;
+}
+#footer .inner address {
+  float: left;
+  width: 100%;
+  font: 14px/1.3 "arial";
+  color: #777;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #888;
+}
+#footer .inner p {
+  float: left;
+  width: 100%;
+  font: 12px/1 "arial";
+  color: #777;
+}
+
+.location {
+  position: relative;
+  width: 100%;
+  margin: 20px;
+}
+.location .inner {
+  position: relative;
+  top: 200px;
+  width: 100%;
+  height: 100vh;
+}
+.location .inner h1 {
+  position: relative;
+  left: 22%;
+  font: normal 50px/1 "arial";
+  color: #000;
+  margin-bottom: 60px;
+}
+.location .inner h1 span {
+  font: normal 20px/1 "맑은 고딕";
+  color: #aaa;
+}
+.location .inner h1 span::before {
+  content: "/";
+  margin-right: 20px;
+  margin-left: 10px;
+}
+.location .inner #map {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  width: 1080px;
+  height: 500px;
+  border: 1px solid black;
+  margin-bottom: 20px;
+}
+.location .inner::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.location .inner .traffic {
+  float: left;
+}
+.location .inner .traffic li {
+  float: left;
+  margin-right: 20px;
+}
+.location .inner .traffic li a {
+  display: block;
+  width: 200px;
+  height: 40px;
+  background-color: #555;
+  font: bold 12px/40px "맑은고딕";
+  color: #fff;
+  text-align: center;
+  border: 1px solid #555;
+  position: relative;
+  top: 30px;
+  left: 205%;
+}
+.location .inner .traffic li.on a {
+  background-color: #fff;
+  color: #555;
+  opacity: 0.4;
+}
+
+.award {
+  background: linear-gradient(45deg, lightgreen, aqua);
+}
+.award h3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: -150px;
+  font-size: 60px;
+  color: #222;
+}
+.award .txt {
+  position: fixed;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  width: 100%;
+  white-space: nowrap;
+  font-size: 13vw;
+  -webkit-text-stroke: 2px #222;
+  color: transparent;
+  text-align: center;
+  /*
+  크로스 브라우징 : 웹페이지나 웹앱의 외형이 기능이 브라우저마다 다른 엔진으로 해석되는
+  이슈로 인하여 동일한 작동이 가능하도록 크로스 브라우징을 해야했습니다
+  그러나 거의 웹킷 기반으로 통합되었고 파이어폭스만 남아있는 상황
+   -webkit- : 크롬, 사파리, 안드로이드 브라우저(일부)
+   오페라 브라우저,  엣지가  통합되었습니다
+   -moz- : 파이어폭스 브라우저
+  */
+}
+.award section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  clip-path: circle(0px at center center);
+}
+.award section .innerText {
+  position: fixed;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  font-size: 13vw;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
+.award .container {
+  position: relative;
+  margin-top: 200vh;
+  background-color: #222;
+  padding: 200px;
+  color: #fff;
+}
+.award .container h2 {
+  font-size: 40px;
+  margin-top: 20px;
+}
+.award .container p {
+  font: 16px/1.4 "arial";
+}
+
+.solo {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: #fff;
+  overflow: hidden;
+}
+.solo section article {
+  width: 24vw;
+  height: 60vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -30vh;
+  margin-left: -12vw;
+  z-index: 1;
+  overflow: hidden;
+  transition-property: width, height, transform, opacity, margin-left, margin-top, top, left;
+  transition-duration: 0.5s;
+  transition-delay: 0s;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  /*
+  article의 순서를 적용하는 방법의 고민
+  1. nth-of-type
+  2. data-index
+  data속성으로 작업하면 개발자의 의도와 개입이 자유롭다
+  반면nth-of-type은 이미정해진 index로 순환하기 때문에
+  개발자의 순서개입이 어렵다
+  */
+}
+.solo section article .txt {
+  width: 100%;
+  height: 40%;
+  background-color: #222;
+  padding: 30px 20px 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: 0.5s;
+}
+.solo section article .txt strong {
+  position: relative;
+  top: 5%;
+  font: bold 14px/1 "arial";
+  color: #ddd;
+}
+.solo section article .txt p {
+  position: relative;
+  top: 5%;
+  font: 14px/1.2 "arial";
+  color: #888;
+}
+.solo section article .txt i {
+  font-size: 20px;
+  color: #888;
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+.solo section article .txt h2 {
+  font: 5vw/1 "crimson text";
+  color: #fff;
+  position: absolute;
+  bottom: 1vw;
+  left: 20px;
+  z-index: 2;
+  transition: 0.5s;
+  text-shadow: 5px 5px 3px rgba(0, 0, 0, 0.2);
+}
+.solo section article .txt h2::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  background-color: #fff;
+  top: -10px;
+  left: 0;
+  transition: width 1s 0.5s;
+}
+.solo section article .txt .desc {
+  width: 60%;
+  opacity: 0;
+  position: absolute;
+  top: 60%;
+  left: 5vw;
+  transition: 0.5s;
+  font: 16px/1.3 "arial";
+  color: #888;
+}
+.solo section article .pic {
+  width: 100%;
+  height: 60%;
+  background-color: #000;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: 0.5s;
+}
+.solo section article .pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+  transition: opacity 0.5s;
+}
+.solo section article .open {
+  width: 0%;
+  height: 60px;
+  background-color: #fff;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.solo section article .open span {
+  font: 16px/1 "crimson text";
+  color: #000;
+  transform: translateX(-200px);
+  opacity: 0;
+  transition: 0.5s;
+}
+.solo section article .open i {
+  margin-right: -100px;
+  opacity: 0;
+  color: #555;
+  transition: 0.5s;
+}
+.solo section article .close {
+  cursor: pointer;
+  position: absolute;
+  top: 20vh;
+  right: -10vh;
+  color: #ddd;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.solo section article:nth-of-type(1) {
+  transform: translateX(-400%) translateY(200%);
+  opacity: 0;
+}
+.solo section article:nth-of-type(2) {
+  transform: translateX(-130%) translateY(40%);
+  opacity: 0.8;
+}
+.solo section article:nth-of-type(3) {
+  transform: translateX(0%) translateY(0%);
+  opacity: 1;
+}
+.solo section article:nth-of-type(3) .txt h2::before {
+  width: 4vw;
+}
+.solo section article:nth-of-type(3) .pic img {
+  opacity: 1;
+}
+.solo section article:nth-of-type(3) .open {
+  width: 100%;
+}
+.solo section article:nth-of-type(3) .open span {
+  transform: translateX(20px);
+  opacity: 1;
+  transition: 0.5s 0.5s;
+}
+.solo section article:nth-of-type(3) .open i {
+  margin-right: 30px;
+  opacity: 1;
+  transition: 0.5s 0.8s;
+}
+.solo section article:nth-of-type(4) {
+  transform: translateX(130%) translateY(-40%);
+  opacity: 0.8;
+}
+.solo section article:nth-of-type(5) {
+  transform: translateX(400%) translateY(-200%);
+  opacity: 0;
+}
+.solo section article.on {
+  width: 100%;
+  height: 100%;
+  margin-top: 0;
+  margin-left: 0;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  transition-duration: 0.8s;
+  transition-delay: 0.5s;
+}
+.solo section article.on .txt {
+  width: 60%;
+  height: 100%;
+  padding: 5vw;
+  transition: 0.5s 0.5s;
+}
+.solo section article.on .txt h2 {
+  bottom: calc(100% - 5vw - 200px);
+  left: 5vw;
+  transition: 0.5s;
+}
+.solo section article.on .txt .desc {
+  opacity: 1;
+  top: 50%;
+  transition: 1s 1s;
+}
+.solo section article.on .pic {
+  width: 40%;
+  height: 100%;
+  transition: 0.5s 0.5s;
+}
+.solo section article.on .open {
+  opacity: 0;
+  margin-top: 1000px;
+}
+.solo section article.on .close {
+  opacity: 1;
+  right: 10vw;
+  transition: 0.5s 1s;
+  transition-timing-function: cubic-bezier(0.48, -0.67, 0.54, 1.68);
+}
+.solo nav {
+  position: absolute;
+  bottom: 10vh;
+  right: 10vw;
+  display: flex;
+  gap: 50px;
+  transition: 0.5s;
+}
+.solo nav:hover {
+  gap: 80px;
+}
+.solo nav::before {
+  content: "";
+  height: 150%;
+  width: 1px;
+  background-color: #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) rotate(-60deg);
+}
+.solo nav p {
+  width: 100px;
+  height: 40px;
+  position: relative;
+  color: #000;
+  cursor: pointer;
+}
+.solo nav p span {
+  font: italic 12px/1 "arial";
+  display: inline-block;
+}
+.solo nav p::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  background-color: #000;
+  top: 50%;
+  transition: 0.2s 0.2s;
+  opacity: 1;
+}
+.solo nav p::after {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 1px;
+  background-color: #000;
+  top: 50%;
+  opacity: 1;
+  transition: 0.2s 0s;
+}
+.solo nav p.prev {
+  text-align: right;
+}
+.solo nav p.prev span {
+  transform: translateY(20px);
+}
+.solo nav p.prev::before {
+  right: 0px;
+}
+.solo nav p.prev::after {
+  transform: rotate(30deg);
+  left: 0;
+  transform-origin: left center;
+}
+.solo nav p.next {
+  text-align: left;
+}
+.solo nav p.next span {
+  transform: translateY(-5px);
+}
+.solo nav p.next::before {
+  left: 0;
+}
+.solo nav p.next::after {
+  transform: rotate(30deg);
+  right: 0;
+  transform-origin: right center;
+}
+.solo nav p:hover.next::before, .solo nav p:hover.prev::before {
+  width: 100%;
+  transition: 0.2s;
+}
+.solo nav p:hover.next::after, .solo nav p:hover.prev::after {
+  width: 40px;
+  transition: 0.2s 0.2s;
+}
+
+main .community2 {
+  width: 100%;
+  height: 215vh;
+  position: relative;
+  top: 200px;
+  display: block;
+}
+main .community2 h2 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  font: bold 50px/1 "arial";
+}
+main .community2 .inner2 {
+  width: 1180px;
+  margin: 50px auto;
+  padding: 0 20px;
+  position: relative;
+}
+main .community2 .inner2 .center_line {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 110%;
+  background-color: #000;
+}
+main .community2 .inner2 .center_line .scroll_icon {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f2f2f2;
+  font-size: 25px;
+  text-align: center;
+  line-height: 40px;
+  color: #79e5cb;
+  box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+}
+main .community2 .inner2 .row {
+  display: flex;
+}
+main .community2 .inner2 .row section {
+  background-color: #eee;
+  border-radius: 5px;
+  width: calc(50% - 40px);
+  padding: 20px;
+  position: relative;
+  top: 100px;
+  font: bold 20px/1 "arial";
+  opacity: 0;
+  transform: rotateY(180deg) translateY(100px);
+  transition: 0.5s;
+}
+main .community2 .inner2 .row section.on {
+  opacity: 1;
+  transform: rotateY(0deg) translateY(0px);
+}
+main .community2 .inner2 .row section .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .community2 .inner2 .row section .derails {
+  justify-content: space-between;
+  align-items: center;
+  font: bold 14px/1 "arial";
+}
+main .community2 .inner2 .row section .derails img {
+  position: relative;
+  top: -5px;
+  width: 100px;
+  height: 100px;
+  padding: 5px 5px 5px 5px;
+  margin: 5px 5px 5px 5px;
+}
+main .community2 .inner2 .row section .derails p {
+  display: inline;
+  position: relative;
+  top: 10px;
+  left: -70%;
+  margin: 0px 5px 0px 5px;
+  white-space: nowrap;
+}
+main .community2 .inner2 .row section .bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main .community2 .inner2 .row section .bottom a {
+  display: block;
+  background-color: #79e5cb;
+  padding: 7px 15px;
+  border-radius: 5px;
+  color: #fff;
+}
+main .community2 .inner2 .row section::before {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 15px;
+  background-color: #79e5cb;
+  position: absolute;
+  top: 28px;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+main .community2 .inner2 .row section > i {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f2f2f2;
+  text-align: center;
+  line-height: 40px;
+  color: #79e5cb;
+  font-size: 17px;
+  box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+}
+main .community2 .inner2 .row.row_left {
+  justify-content: flex-start;
+}
+main .community2 .inner2 .row.row_left section::before {
+  right: -7px;
+}
+main .community2 .inner2 .row.row_left section > i {
+  top: 15px;
+  right: -60px;
+}
+main .community2 .inner2 .row.row_right {
+  justify-content: flex-end;
+}
+main .community2 .inner2 .row.row_right section::before {
+  left: -7px;
+}
+main .community2 .inner2 .row.row_right section > i {
+  top: 15px;
+  left: -60px;
+}
+
+.scroll {
+  display: none;
+  position: fixed;
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.scroll li {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.scroll li.on {
+  height: 80px;
+  background-color: #000;
+}
+
+/*# sourceMappingURL=style.css.map */

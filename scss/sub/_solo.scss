@@ -1,0 +1,418 @@
+.solo {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-color: #fff;
+    overflow: hidden;
+    //ul,li나 section,article이나 관련있는 쌍으로 
+    //슬라이드와 슬라이드를 wrap으로 태그를 사용했습니다
+    section {
+        article {
+            width: 24vw;
+            height: 60vh;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            //position값이 있어야만 좌표(top,left등이) 적용이됩니다
+            //z-index도 마찬가지입니다
+            margin-top: -30vh;
+            margin-left: -12vw;
+            z-index: 1;
+            overflow: hidden;
+            transition-property: width, height, transform, opacity,
+            margin-left, margin-top, top, left;
+            transition-duration: 0.5s;
+            transition-delay: 0s;
+            // transition: all 3s 1s;
+            //all=> property이고, 3s는 duration이며,
+            //1s 는 delay입니다
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+
+            .txt {
+                width: 100%;
+                height: 40%;
+                background-color: #222;
+                padding: 30px 20px 20px;
+
+                //시험문제
+                // padding: 30px 10px 20px; //상하 30, 좌우 10, 하 20
+                // padding: 10px;//상하좌우 10px의 패딩
+                // padding: 10px 10px; 상하 , 좌우
+                // padding: 30px 20px 10px 10px;
+                // //상 30 우 20 하 10 좌 10
+                position: absolute;
+                //포지션은 어떤값이든 기준점을 가집니다
+                top: 0;
+                right: 0;
+                transition: 0.5s;
+
+                strong {
+                    position: relative;
+                    top: 5%;
+                    font: bold 14px/1 "arial";
+                    color: #ddd;
+                }
+
+                p {
+                    position: relative;
+                    top: 5%;
+                    font: 14px/1.2 "arial";
+                    color: #888;
+                }
+
+                i {
+                    font-size: 20px;
+                    color: #888;
+                    position: absolute;
+                    top: 40px;
+                    right: 40px;
+                }
+
+                h2 {
+                    font: 5vw/1 "crimson text";
+                    color: #fff;
+                    position: absolute;
+                    bottom: 1vw;
+                    left: 20px;
+                    z-index: 2;
+                    transition: 0.5s;
+                    text-shadow: 5px 5px 3px rgba(0, 0, 0, 0.2);
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        width: 0%;
+                        height: 1px;
+                        background-color: #fff;
+                        top: -10px;
+                        left: 0;
+                        transition: width 1s 0.5s;
+
+                        //시험문제
+                        // y좌표에서 위쪽으로 이동하려면
+                        // 2가지방법 : 
+                        // top은 음수를 주어야 위쪽으로 이동하고
+                        // bottom은 양수를 주어야 위쪽으로 이동합니다
+                    }
+                }
+
+                .desc {
+                    width: 60%;
+                    opacity: 0;
+                    position: absolute;
+                    top: 60%;
+                    left: 5vw;
+                    transition: 0.5s;
+                    font: 16px/1.3 "arial";
+                    color: #888;
+
+                    
+                }
+            }
+
+            .pic {
+                width: 100%;
+                height: 60%;
+                background-color: #000;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                transition: 0.5s;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    opacity: 0.5;
+                    transition: opacity 0.5s;
+                }
+            }
+
+            .open {
+                width: 0%;
+                height: 60px;
+                background-color: #fff;
+                position: absolute;
+                bottom: 0px;
+                left: 0px;
+                overflow: hidden;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                cursor: pointer;
+                transition: 0.5s;
+
+
+                span {
+                    font: 16px/1 "crimson text";
+                    color: #000;
+                    transform: translateX(-200px);
+                    opacity: 0;
+                    transition: 0.5s;
+                }
+
+                i {
+                    margin-right: -100px;
+                    opacity: 0;
+                    color: #555;
+                    transition: 0.5s;
+                }
+            }
+
+            .close {
+                cursor: pointer;
+                position: absolute;
+                top: 20vh;
+                right: -10vh;
+                color: #ddd;
+                opacity: 0;
+                transition: all 0.5s;
+            }
+
+            /*
+            article의 순서를 적용하는 방법의 고민
+            1. nth-of-type
+            2. data-index
+            data속성으로 작업하면 개발자의 의도와 개입이 자유롭다
+            반면nth-of-type은 이미정해진 index로 순환하기 때문에
+            개발자의 순서개입이 어렵다
+            */
+            &:nth-of-type(1) {
+                transform: translateX(-400%) translateY(200%);
+                opacity: 0;
+            }
+
+            &:nth-of-type(2) {
+                transform: translateX(-130%) translateY(40%);
+                opacity: 0.8;
+            }
+
+            //활성화 패널
+            &:nth-of-type(3) {
+                transform: translateX(0%) translateY(0%);
+                opacity: 1;
+
+                .txt {
+                    h2::before {
+                        width: 4vw;
+                    }
+                }
+
+                .pic {
+                    img {
+                        opacity: 1;
+                    }
+                }
+
+                .open {
+                    width: 100%;
+
+                    span {
+                        transform: translateX(20px);
+                        opacity: 1;
+                        transition: 0.5s 0.5s;
+                    }
+
+                    i {
+                        margin-right: 30px;
+                        opacity: 1;
+                        transition: 0.5s 0.8s;
+                    }
+                }
+
+            }
+
+            &:nth-of-type(4) {
+                transform: translateX(130%) translateY(-40%);
+                opacity: 0.8;
+            }
+
+            &:nth-of-type(5) {
+                transform: translateX(400%) translateY(-200%);
+                opacity: 0;
+            }
+
+            // &.on{
+
+            // }
+        }
+
+        //가독성상 &.on보다는 article.on좀더 가독성이 좋다고 볼수있음
+
+        article.on {
+            width: 100%;
+            height: 100%;
+            margin-top: 0;
+            margin-left: 0;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            transition-duration: 0.8s;
+            transition-delay: 0.5s;
+
+            .txt {
+                width: 60%;
+                height: 100%;
+                padding: 5vw;
+                transition: 0.5s 0.5s;
+
+                h2 {
+                    bottom: calc(100% - 5vw - 200px);
+                    // bottom: auto;
+                    // top: calc(5vw + 100px);
+                    left: 5vw;
+                    transition: 0.5s;
+                }
+
+                .desc {
+                    opacity: 1;
+                    top: 50%;
+                    transition: 1s 1s;
+                }
+            }
+
+            .pic {
+                width: 40%;
+                height: 100%;
+                transition: 0.5s 0.5s;
+            }
+
+            .open {
+                opacity: 0;
+                margin-top: 1000px;
+            }
+
+            .close {
+                opacity: 1;
+                right: 10vw;
+                transition: 0.5s 1s;
+                transition-timing-function: cubic-bezier(0.48, -0.67, 0.54, 1.68);
+            }
+
+        }
+
+        // article.hide {
+        //     margin-top: -1000px;
+        //     opacity: 0;
+        //     // transition-delay: 0s;
+        // }
+    }
+
+    nav {
+        position: absolute;
+        bottom: 10vh;
+        right: 10vw;
+        display: flex;
+        gap: 50px;
+        transition: 0.5s;
+
+        &:hover {
+            gap: 80px;
+        }
+        &::before {
+            content: "";
+            height: 150%;
+            width: 1px;
+            background-color: #000;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%) rotate(-60deg);
+
+        }
+
+        p {
+            width: 100px;
+            height: 40px;
+            position: relative;
+            color: #000;
+            cursor: pointer;
+
+            span {
+                font: italic 12px/1 "arial";
+                display: inline-block;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 0%; //
+                height: 1px;
+                background-color: #000;
+                top: 50%;
+                transition: 0.2s 0.2s;
+                opacity: 1;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 0px; //
+                height: 1px;
+                background-color: #000;
+                top: 50%;
+                opacity: 1;
+                transition: 0.2s 0s;
+
+            }
+
+            &.prev {
+                text-align: right;
+
+                span {
+                    transform: translateY(20px);
+                }
+
+                &::before {
+                    right: 0px;
+                }
+
+                &::after {
+                    transform: rotate(30deg);
+                    left: 0;
+                    transform-origin: left center;
+                }
+            }
+
+            &.next {
+                text-align: left;
+
+                span {
+                    transform: translateY(-5px);
+                }
+
+                &::before {
+                    left: 0;
+                }
+
+                &::after {
+                    transform: rotate(30deg);
+                    right: 0;
+                    transform-origin: right center;
+                }
+            }
+
+            // &:hover{
+
+            // }
+        }
+
+        //가독성을 위해서 네스팅을 포기함
+        p:hover {
+
+            &.next,
+            &.prev {
+                &::before {
+                    width: 100%;
+                    transition: 0.2s;
+
+                }
+
+                &::after {
+                    width: 40px;
+                    transition: 0.2s 0.2s;
+                }
+            }
+        }
+    }
+}
